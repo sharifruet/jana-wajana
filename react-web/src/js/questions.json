@@ -1,0 +1,116 @@
+[
+    {
+      "questionText": "What is the capital of France?",
+      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "correctAnswer": 2
+    },
+    {
+      "questionText": "Which planet is known as the Red Planet?",
+      "options": ["Earth", "Mars", "Venus", "Jupiter"],
+      "correctAnswer": 1
+    },
+    {
+        "questionText": "What is the capital of Japan?",
+        "options": ["Beijing", "Seoul", "Tokyo", "Bangkok"],
+        "correctAnswer": 2
+      },
+      {
+        "questionText": "Which gas do plants absorb from the atmosphere during photosynthesis?",
+        "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "correctAnswer": 1
+      },
+      {
+        "questionText": "Who wrote the play 'Romeo and Juliet'?",
+        "options": ["Charles Dickens", "Jane Austen", "William Shakespeare", "F. Scott Fitzgerald"],
+        "correctAnswer": 2
+      },
+      {
+        "questionText": "What is the largest mammal in the world?",
+        "options": ["African Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+        "correctAnswer": 1
+      },
+      {
+        "questionText": "What is the chemical symbol for the element gold?",
+        "options": ["Au", "Ag", "Fe", "Cu"],
+        "correctAnswer": 0
+      },
+      {
+        "questionText": "Which planet is known as the 'Morning Star' or 'Evening Star'?",
+        "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+        "correctAnswer": 1
+      },
+      {
+        "questionText": "What is the largest organ in the human body?",
+        "options": ["Heart", "Liver", "Brain", "Skin"],
+        "correctAnswer": 3
+      },
+      {
+        "questionText": "Who is the author of 'To Kill a Mockingbird'?",
+        "options": ["J.D. Salinger", "Harper Lee", "Mark Twain", "George Orwell"],
+        "correctAnswer": 1
+      },
+      {
+        "questionText": "What is the chemical symbol for the element oxygen?",
+        "options": ["O", "Ox", "Oy", "Oxg"],
+        "correctAnswer": 0
+      },
+      {
+        "questionText": "In which year did Christopher Columbus first arrive in the Americas?",
+        "options": ["1492", "1532", "1620", "1776"],
+        "correctAnswer": 0
+      },
+      [
+        {
+          "questionText": "What is the largest planet in our solar system?",
+          "options": ["Mars", "Earth", "Saturn", "Jupiter"],
+          "correctAnswer": 3
+        },
+        {
+          "questionText": "Which country is known as the Land of the Rising Sun?",
+          "options": ["Japan", "China", "South Korea", "Vietnam"],
+          "correctAnswer": 0
+        },
+        {
+          "questionText": "What is the world's tallest mountain?",
+          "options": ["Mount Kilimanjaro", "Mount Fuji", "Mount Everest", "Mount McKinley"],
+          "correctAnswer": 2
+        },
+        {
+          "questionText": "Who was the first woman to fly solo across the Atlantic Ocean?",
+          "options": ["Amelia Earhart", "Bessie Coleman", "Harriet Quimby", "Jacqueline Cochran"],
+          "correctAnswer": 0
+        },
+        {
+          "questionText": "Which gas makes up the majority of Earth's atmosphere?",
+          "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+          "correctAnswer": 2
+        },
+        {
+          "questionText": "What is the chemical symbol for the element silver?",
+          "options": ["Sv", "Sl", "Si", "Ag"],
+          "correctAnswer": 3
+        },
+        {
+          "questionText": "Which planet is often referred to as the 'Red Planet'?",
+          "options": ["Earth", "Mars", "Venus", "Saturn"],
+          "correctAnswer": 1
+        },
+        {
+          "questionText": "What is the largest ocean on Earth?",
+          "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+          "correctAnswer": 3
+        },
+        {
+          "questionText": "Who wrote the play 'Hamlet'?",
+          "options": ["George Orwell", "William Shakespeare", "F. Scott Fitzgerald", "Jane Austen"],
+          "correctAnswer": 1
+        },
+        {
+          "questionText": "What is the chemical symbol for the element hydrogen?",
+          "options": ["Hd", "Hy", "Hn", "H"],
+          "correctAnswer": 3
+        }
+      ]
+      
+  ]
+  
