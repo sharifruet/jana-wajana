@@ -6,8 +6,8 @@ import QRCode from 'qrcode.react';
 function Quiz() {
   const { quizId } = useParams();
   const [quiz, setQuiz] = useState(null);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
-  const [showNextQuestionText, setShowNextQuestionText] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(null);
+  const [showLoadingText, setShowLoadingText] = useState(false);
   const [showResultsText, setShowResultsText] = useState(false);
 
   useEffect(() => {
@@ -15,8 +15,8 @@ function Quiz() {
       .get(`http://localhost:5000/quizzes/${quizId}`)
       .then((response) => {
         setQuiz(response.data);
-        setCurrentQuestionIndex(-1);
-        setShowNextQuestionText(false);
+        setCurrentQuestionIndex(null);
+        setShowLoadingText(false);
         setShowResultsText(false);
       })
       .catch((error) => {
@@ -25,45 +25,45 @@ function Quiz() {
   }, [quizId]);
 
   const startQuiz = () => {
-    setCurrentQuestionIndex(0);
-    // Start loading questions sequentially with intervals
-    const timer = setInterval(() => {
-      if (currentQuestionIndex < quiz.questions.length) {
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-        setShowNextQuestionText(false);
+    setCurrentQuestionIndex(-1); // Start from the first question
+    loadNextQuestion();
+  };
 
-        if (currentQuestionIndex === quiz.questions.length - 1) {
-          // All questions have been shown, show results after 3 seconds
-          clearInterval(timer);
-          setTimeout(() => {
-            setShowResultsText(true);
-          }, 3000);
-        } else {
-          // Show "loading next question" after 5 seconds
-          setTimeout(() => {
-            setShowNextQuestionText(true);
-          }, 5000);
-        }
-      } else {
-        // All questions have been shown, stop the timer
-        clearInterval(timer);
-      }
-    }, 8000); // Change this interval as needed (5 seconds question + 3 seconds text)
+  const loadNextQuestion = () => {
+    if (currentQuestionIndex < quiz.questions.length) {
+      // Load the next question after 5 seconds
+      setTimeout(() => {
+        
+        setShowLoadingText(true);
+
+        // Show "loading next question" for 3 seconds
+        setTimeout(() => {
+          setShowLoadingText(false);
+
+          // Load the next question
+          loadNextQuestion();
+        }, 3000);
+      }, 5000);
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    } else {
+      // All questions have been shown, show results after 3 seconds
+      setShowLoadingText(true);
+
+      setTimeout(() => {
+        setShowResultsText(true);
+      }, 3000);
+    }
   };
 
   if (!quiz) {
     return <p>Loading quiz details...</p>;
   }
 
-  const question = quiz.questions[currentQuestionIndex];
-
   return (
     <div>
       <h2>Quiz: {quiz.title}</h2>
-      <h4>{currentQuestionIndex}</h4>
       <div>
-        
-        {currentQuestionIndex < 0 && (
+        {currentQuestionIndex === null && (
           <>
             <QRCode value={`http://localhost:3000/quiz/${quizId}`} />
             <p>Quiz Code: {quizId}</p>
@@ -71,17 +71,21 @@ function Quiz() {
           </>
         )}
       </div>
-      {currentQuestionIndex >=0 && (
+      {currentQuestionIndex !== null && (
         <div>
-          <h3>Question {currentQuestionIndex + 1}</h3>
-          {!showNextQuestionText && !showResultsText && <p>{question?.questionText}</p>}
-          {showNextQuestionText && <p>Loading next question...</p>}
-          {showResultsText && <p>Results here</p>}
-        </div>
-      )}
-      {showResultsText && (
-        <div>
-          <p>Result</p>
+          {showResultsText ? (
+            <p>Here is the result</p>
+          ) : currentQuestionIndex < quiz.questions.length ? (
+            <div>
+              <h3>Question {currentQuestionIndex + 1}</h3>
+              {showLoadingText ? (
+                <p>Loading next question...</p>
+              ) 
+              : (
+                <p>{quiz.questions[currentQuestionIndex].questionText}</p>
+              )}
+            </div>
+          ) : null}
         </div>
       )}
     </div>
